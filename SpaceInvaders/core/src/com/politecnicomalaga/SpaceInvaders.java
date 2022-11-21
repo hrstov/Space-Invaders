@@ -7,39 +7,27 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 public class SpaceInvaders extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture nave, enemigo;
-	int xN, yN, xE, yE;
-
+	Texture img;
+	NaveAliada jugador;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		Texture nave = new Texture("nave.png");
-		Texture enemigo = new Texture("enemigo.png");
-
-		xN = 100;
-		yN = 100;
-		xE = 100;
-		yE = 100;
+		img = new Texture("navejugador.png");
+		jugador = new NaveAliada(img);
 	}
 
 	@Override
 	public void render () {
-		ScreenUtils.clear(1, 0, 0, 1);
+		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
-
-
-		batch.draw(nave, xN, yN);
-		batch.draw(enemigo, xE, yE);
-
-
+		jugador.Pintarse(batch);
 		batch.end();
 	}
 	
 	@Override
 	public void dispose () {
 		batch.dispose();
-		nave.dispose();
-		enemigo.dispose();
+		img.dispose();
 	}
 }
