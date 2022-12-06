@@ -3,6 +3,7 @@ package com.politecnicomalaga;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -20,7 +21,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 
 	NaveEnemiga[] malos;
 	Texture img_fondo;
-	//Texture mg_fondo;
+	//Texture img_fondo;
 	Texture img_NaveEnemiga;
 
 	int ancho_enemigos = 11;
@@ -37,11 +38,11 @@ public class SpaceInvaders extends ApplicationAdapter {
 		imgDA = new Texture("disparo.png");
 		jugador = new NaveAliada(img);
 		disparoDA = new DisparoAliado(imgDA);
-		//img_fondo = new Texture("istockphoto-910093098-612x612.jpg");
+		img_fondo = new Texture("istockphoto-910093098-612x612.jpg");
 
 		img_NaveEnemiga = new Texture("navealien.png");
 		malos = new NaveEnemiga[ancho_enemigos * alto_enemigos];
-		//img_fondo = new TextureRegion((new Texture("istockphoto-910093098-612x612.jpg")),0,0,2048);
+		img_fondo = (new Texture("istockphoto-910093098-612x612.jpg"));
 
 
 		for (int y = 0; y < alto_enemigos; y++) {
@@ -51,23 +52,35 @@ public class SpaceInvaders extends ApplicationAdapter {
 				position.y +=Gdx.graphics.getHeight();
 				position.x -= (ancho_enemigos / 2) * enemigos;
 				position.y -= (alto_enemigos)* enemigos;
-				malos[i] = new NaveEnemiga(position,img_NaveEnemiga, Color.GREEN);
+				malos[i] = new NaveEnemiga(position,img_NaveEnemiga, Color.ORANGE);
 				i++;
 			}
 		}
 
 	}
 
+	//			private Texture texture;
+	//		...
+	//			texture = new Texture(Gdx.files.internal("image.png"));
+	//		...
+	//				batch.begin();
+	//		batch.draw(texture, 10, 10);
+	//		batch.end();
+	//
+
+
+
 
 
 	@Override
 	public void render () {
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
 		jugador.Pintarse(batch);
 		disparoDA.PintarseDA(batch, jugador.position);
 
-	//	batch.draw(img_fondo, 0, Gdx.graphics.getHeight());
+		batch.draw(img_fondo, 0, Gdx.graphics.getHeight());
 
 		for(i = 0; i < malos.length; i++) {
 			malos[0].Pintarse(batch);
