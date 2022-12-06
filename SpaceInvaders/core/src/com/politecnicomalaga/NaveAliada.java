@@ -21,6 +21,11 @@ public class NaveAliada {
     public void Movimiento(float deltatime){
         if(Gdx.input.isKeyPressed(Input.Keys.A)) position.x-=deltatime*velocidad;
         if(Gdx.input.isKeyPressed(Input.Keys.D)) position.x+=deltatime*velocidad;
+
+        if(position.x-(sprite.getWidth()*sprite.getScaleX()/2)<=0) position.x = (sprite.getWidth()*sprite.getScaleX()/2);
+        if(position.x+(sprite.getWidth()*sprite.getScaleX()/2)>=Gdx.graphics.getWidth()) position.x = Gdx.graphics.getWidth()-(sprite.getWidth()*sprite.getScaleX()/2);
+
+
     }
     public void Pintarse(SpriteBatch batch){
         Movimiento(Gdx.graphics.getDeltaTime());
