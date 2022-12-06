@@ -14,7 +14,7 @@ public class NaveAliada {
     public NaveAliada(Texture img)
     {
         sprite = new Sprite(img);
-        sprite.setScale(4);
+        sprite.setScale(3);
         position = new Vector2(Gdx.graphics.getWidth()/ 2, sprite.getScaleY()*sprite.getHeight()/2);
 
     }

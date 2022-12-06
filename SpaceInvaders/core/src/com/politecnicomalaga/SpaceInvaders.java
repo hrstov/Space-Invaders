@@ -21,7 +21,6 @@ public class SpaceInvaders extends ApplicationAdapter {
 
 	NaveEnemiga[] malos;
 	Texture img_fondo;
-	//Texture img_fondo;
 	Texture img_NaveEnemiga;
 
 	int ancho_enemigos = 11;
@@ -77,10 +76,11 @@ public class SpaceInvaders extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
+		batch.draw(img_fondo,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 		jugador.Pintarse(batch);
 		disparoDA.PintarseDA(batch, jugador.position);
 
-		batch.draw(img_fondo, 0, Gdx.graphics.getHeight());
+		//batch.draw(img_fondo, 0, Gdx.graphics.getHeight());
 
 		for(i = 0; i < malos.length; i++) {
 			malos[0].Pintarse(batch);

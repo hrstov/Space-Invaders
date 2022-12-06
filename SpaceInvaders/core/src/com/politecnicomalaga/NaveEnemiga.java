@@ -14,7 +14,7 @@ public class NaveEnemiga {
         position = _position;
         sprite = new Sprite(img);
         sprite.setColor(color);
-        sprite.setScale(4);
+        sprite.setScale(3);
     }
     public void Pintarse(SpriteBatch batch) {
         sprite.setPosition(position.x, position.y);
