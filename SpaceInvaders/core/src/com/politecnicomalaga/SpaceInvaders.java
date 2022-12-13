@@ -37,7 +37,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 		imgDA = new Texture("disparo.png");
 		jugador = new NaveAliada(img);
 		disparoDA = new DisparoAliado(imgDA);
-		img_fondo = new Texture("istockphoto-910093098-612x612.jpg");
+		img_fondo = new Texture("background.jpg");
 
 		img_NaveEnemiga = new Texture("navealien.png");
 		malos = new NaveEnemiga[ancho_enemigos * alto_enemigos];
