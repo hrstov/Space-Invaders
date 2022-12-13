@@ -30,6 +30,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 
 
 
+
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
@@ -38,6 +39,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 		jugador = new NaveAliada(img);
 		disparoDA = new DisparoAliado(imgDA);
 		img_fondo = new Texture("background.jpg");
+		
 
 		img_NaveEnemiga = new Texture("navealien.png");
 		malos = new NaveEnemiga[ancho_enemigos * alto_enemigos];
@@ -48,7 +50,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 			for (int x = 0; x < alto_enemigos; x++) {
 				Vector2 position = new Vector2(x* enemigos,y* enemigos);
 				position.x += Gdx.graphics.getWidth()/2;
-				position.y += Gdx.graphics.getHeight();
+				position.y +=Gdx.graphics.getHeight();
 				position.x -= (ancho_enemigos / 2) * enemigos;
 				position.y -= (alto_enemigos)* enemigos;
 				malos[i] = new NaveEnemiga(position,img_NaveEnemiga, Color.ORANGE);
@@ -59,6 +61,7 @@ public class SpaceInvaders extends ApplicationAdapter {
 	}
 
 
+
 	@Override
 	public void render () {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -67,7 +70,8 @@ public class SpaceInvaders extends ApplicationAdapter {
 		jugador.Pintarse(batch);
 		disparoDA.PintarseDA(batch, jugador.position);
 
-		for (int i = 0; i < malos.length; i++) {
+
+		for(i = 0; i < malos.length; i++) {
 			malos[0].Pintarse(batch);
 		}
 
