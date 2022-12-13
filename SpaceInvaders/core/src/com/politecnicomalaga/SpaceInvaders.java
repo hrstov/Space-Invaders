@@ -25,8 +25,9 @@ public class SpaceInvaders extends ApplicationAdapter {
 
 	int ancho_enemigos = 11;
 	int alto_enemigos = 5;
-	int enemigos = 40;
-	int i = 0;
+	int enemigos = 10;
+	int i;
+
 
 
 
@@ -37,7 +38,8 @@ public class SpaceInvaders extends ApplicationAdapter {
 		imgDA = new Texture("disparo.png");
 		jugador = new NaveAliada(img);
 		disparoDA = new DisparoAliado(imgDA);
-		img_fondo = new Texture("istockphoto-910093098-612x612.jpg");
+		img_fondo = new Texture("background.jpg");
+		
 
 		img_NaveEnemiga = new Texture("navealien.png");
 		malos = new NaveEnemiga[ancho_enemigos * alto_enemigos];
@@ -58,29 +60,16 @@ public class SpaceInvaders extends ApplicationAdapter {
 
 	}
 
-	//			private Texture texture;
-	//		...
-	//			texture = new Texture(Gdx.files.internal("image.png"));
-	//		...
-	//				batch.begin();
-	//		batch.draw(texture, 10, 10);
-	//		batch.end();
-	//
-
-
-
 
 
 	@Override
 	public void render () {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		ScreenUtils.clear(0, 0, 0, 1);
 		batch.begin();
 		batch.draw(img_fondo,0,0,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 		jugador.Pintarse(batch);
 		disparoDA.PintarseDA(batch, jugador.position);
 
-		//batch.draw(img_fondo, 0, Gdx.graphics.getHeight());
 
 		for(i = 0; i < malos.length; i++) {
 			malos[0].Pintarse(batch);
